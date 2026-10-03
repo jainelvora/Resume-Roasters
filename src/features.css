@@ -1,0 +1,19 @@
+.feature-stack { display: grid; gap: 16px; max-width: 760px; margin: 24px auto 0; padding: 0 16px 48px; }
+.feature-card { background: var(--paper, #fffdf6); border: 2px solid #111; border-radius: 6px; padding: 16px; display: grid; gap: 10px; box-shadow: 4px 4px 0 #111; }
+.feature-title { font-weight: 800; text-transform: uppercase; letter-spacing: .06em; font-size: 13px; }
+.feature-note { margin: 0; font-size: 14px; }
+.feature-list { margin: 0; padding-left: 18px; font-size: 14px; }
+.score-trail, .chip-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.score-chip, .chip { border: 2px solid #111; border-radius: 999px; padding: 2px 10px; font-size: 13px; font-weight: 600; }
+.score-arrow { font-weight: 800; }
+.chip-ok { background: #cfeccf; } .chip-miss { background: #f7c9c4; }
+.share-canvas { width: 100%; max-width: 420px; height: auto; border-radius: 4px; justify-self: center; }
+.hire-meter { display: grid; gap: 4px; }
+.hire-meter-labels { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; }
+.hire-meter-track { height: 14px; border: 2px solid #111; border-radius: 999px; overflow: hidden; background: #f7c9c4; }
+.hire-meter-fill { height: 100%; background: #7bc47f; transition: width .6s ease; }
+.upload-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 14px; }
+.upload-row .file-name { font-weight: 600; }
+.jd-textarea { min-height: 90px; resize: vertical; }
+.arena-top-metrics { display: flex; flex-direction: column; gap: 8px; min-width: 220px; }
+
