@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { buildRoastPrompt, RoastPromptParams } from './prompts';
-import { sanitizeAndValidateRoastJson, RoastResponse } from './validate';
-import { SERVER_DEMO_BATTLE } from './demoBattle';
+import { buildRoastPrompt, RoastPromptParams } from './prompts.js';
+import { sanitizeAndValidateRoastJson, RoastResponse } from './validate.js';
+import { SERVER_DEMO_BATTLE } from './demoBattle.js';
 
 export const DEFAULT_MODEL = 'gemini-3-flash-preview';
 

@@ -4,9 +4,9 @@ import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import rateLimit from 'express-rate-limit';
-import { validateInputResume } from './validate';
-import { generateRoastDebate, RoastError, DEFAULT_MODEL } from './gemini';
-import { maskContactInfo } from './privacy';
+import { validateInputResume } from './validate.js';
+import { generateRoastDebate, RoastError, DEFAULT_MODEL } from './gemini.js';
+import { maskContactInfo } from './privacy.js';
 
 const ALLOWED_FILE_TYPES = new Set(['application/pdf', 'image/png', 'image/jpeg', 'image/webp']);
 const MAX_BASE64_CHARS = 7_000_000; // roughly a 5 MB file
