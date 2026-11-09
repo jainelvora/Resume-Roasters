@@ -1,4 +1,4 @@
-import { RoastResponse } from './validate';
+import { RoastResponse } from './validate.js';
 
 export const SERVER_DEMO_BATTLE: RoastResponse = {
   isDemo: true,
