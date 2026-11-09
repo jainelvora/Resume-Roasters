@@ -44,5 +44,9 @@ build/
 .DS_Store
 Thumbs.db
 
+# Vercel
+.vercel
+
+
 # Backup folders
 public/mascots_backup/

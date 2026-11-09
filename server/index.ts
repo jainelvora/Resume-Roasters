@@ -34,7 +34,7 @@ const roastLimiter = rateLimit({
 });
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({
     status: 'ok',
     hasKey: Boolean(process.env.GEMINI_API_KEY),
@@ -43,7 +43,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Main roast battle endpoint
-app.post('/api/roast', roastLimiter, async (req, res) => {
+app.post(['/api/roast', '/roast'], roastLimiter, async (req, res) => {
   const { resume, targetRole, intensity = 'medium', file, jobDescription } = req.body || {};
 
   // 1. Validate: either an uploaded file, or pasted text of a sane length
@@ -95,8 +95,13 @@ app.post('/api/roast', roastLimiter, async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`[Resume Roast Battle Server] Running on http://localhost:${PORT}`);
-  console.log(`[Config] Gemini Key: ${process.env.GEMINI_API_KEY ? 'Configured' : 'Missing (Will use Demo Fallback)'}`);
-  console.log(`[Config] Model: ${process.env.GEMINI_MODEL || DEFAULT_MODEL}`);
-});
+const isDirectRun = Boolean(process.argv[1] && path.resolve(process.argv[1]) === __filename);
+if (!process.env.VERCEL && isDirectRun) {
+  app.listen(PORT, () => {
+    console.log(`[Resume Roast Battle Server] Running on http://localhost:${PORT}`);
+    console.log(`[Config] Gemini Key: ${process.env.GEMINI_API_KEY ? 'Configured' : 'Missing (Will use Demo Fallback)'}`);
+    console.log(`[Config] Model: ${process.env.GEMINI_MODEL || DEFAULT_MODEL}`);
+  });
+}
+
+export default app;
